@@ -1,0 +1,273 @@
+{% extends "base.html" %}
+{% block title %} {{ super() }} Settings {% endblock %}
+{% block css %} <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles/settings.css')}}"/> {% endblock %}
+{% block javascript %} <script type="module" charset="utf-8" src="{{url_for('static', filename='javascript/settings.js')}}"></script> {% endblock %}
+{% block content %}
+<main>
+
+    <div class="email-modal none" id="email-modal">
+        <div class="email-modal__content">
+            <span class="email-modal__close">&times;</span>
+            <p class="email-modal__text"></p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="settings-block">
+            <div class="settings-block__title">Personal Settings</div>
+            <div class="settings-block__separator"></div>
+            <div class="settings-block__field">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-2">
+                            Contact Information
+                        </div>
+                        <div class="col-4 d-flex align-items-center">
+                            <input class="settings-block__input" type="text" name="email" id="email" value="myemail@yahoo.org" readonly>
+                        </div>
+                        <div class="col-2 d-flex align-items-center justify-content-center">
+                            <div class="settings-block__button" id="edit-address-button">Edit Webhook</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="settings-block__field">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-2">
+                            Notifications
+                        </div>
+                        <div class="col-4 d-flex align-items-center">
+                            <input class="settings-block__input" type="text" name="agreement" id="agreement" value="Agreement to receive notification regarding critical alerts." readonly>
+                        </div>
+                        <div class="col-2 d-flex align-items-center justify-content-center">
+                            <div class="settings-block__button settings-block__button_active" id="enable-notify-button">Enabled</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="settings-block__field">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-2">
+                            Sound Alarm
+                        </div>
+                        <div class="col-4 d-flex align-items-center">
+                            <input class="settings-block__input" type="text" name="sound-enabling" id="sound-enabling" value="Caution! Enabling sound alarm may hurt people sensible to loud audio effects." readonly>
+                        </div>
+                        <div class="col-2 d-flex align-items-center justify-content-center">
+                            <div class="settings-block__button settings-block__button_active" id="enable-sound-button">Enabled</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="settings-block__field">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-2">
+                            Light Alarm
+                        </div>
+                        <div class="col-4 d-flex align-items-center">
+                            <input class="settings-block__input" type="text" name="light-enabling" id="light-enabling" value="Caution! Enabling light alarm may hurt people sensible to visual effects." readonly>
+                        </div>
+                        <div class="col-2 d-flex align-items-center justify-content-center">
+                            <div class="settings-block__button settings-block__button_active" id="enable-light-button">Enabled</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="settings-block">
+            <div class="settings-block__title">Preference Settings</div>
+            <div class="settings-block__separator"></div>
+            <div class="settings-block__field">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-3">
+                            Date Format
+                        </div>
+                        <div class="col-3 d-flex justify-content-center">
+                            <input class="settings-block__radio" type="radio" name="date-format" id="date1" checked>
+                            <label class="settings-block__label" for="date1">21/12/2021</label>
+                        </div>
+                        <div class="col-3 d-flex justify-content-center">
+                            <input class="settings-block__radio" type="radio" name="date-format" id="date2">
+                            <label class="settings-block__label" for="date2">December 21, 2021</label>
+                        </div>
+                        <div class="col-3 d-flex justify-content-center">
+                            <input class="settings-block__radio" type="radio" name="date-format" id="date3">
+                            <label class="settings-block__label" for="date3">2012/12/21</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="settings-block__field">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-3">
+                            Time Format
+                        </div>
+                        <div class="col-3 d-flex justify-content-center">
+                            <input class="settings-block__radio" type="radio" name="time-format" id="time1">
+                            <label class="settings-block__label" for="time1">23:59</label>
+                        </div>
+                        <div class="col-3 d-flex justify-content-center">
+                            <input class="settings-block__radio" type="radio" name="time-format" id="time2" checked>
+                            <label class="settings-block__label" for="time2">11:59 pm</label>
+                        </div>
+                        <div class="col-3 d-flex justify-content-center">
+                            <input class="settings-block__radio" type="radio" name="time-format" id="time3">
+                            <label class="settings-block__label" for="time3">11:59 PM</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="settings-block__field">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-3">
+                            Website Colors
+                        </div>
+                        <div class="col-3 d-flex justify-content-center">
+                            <input class="settings-block__radio" type="radio" name="color-format" id="color1" checked>
+                            <label class="settings-block__label colors" for="color1"><span class="blue-dark">blue</span> / <span class="white">white</span></label>
+                        </div>
+                        <div class="col-3 d-flex justify-content-center">
+                            <input class="settings-block__radio" type="radio" name="color-format" id="color2">
+                            <label class="settings-block__label colors" for="color2"><span class="grey">grey</span> / <span class="blue-light">blue</span></label>
+                        </div>
+                        <div class="col-3 d-flex justify-content-center">
+                            <input class="settings-block__radio" type="radio" name="color-format" id="color3">
+                            <label class="settings-block__label colors" for="color3"><span class="green">green</span> / <span class="yellow-dark">yellow</span></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="settings-block">
+            <div class="settings-block__title">System Settings</div>
+            <div class="settings-block__separator"></div>
+            <div class="settings-block__field">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-4">
+                            Temperature Alert Limit
+                        </div>
+                        <div class="col-1">
+                            <span class="bold">0.0°</span>
+                        </div>
+                        <div class="col-6 d-flex align-items-center">
+                            <input class="settings-block__slider" type="range" min="0" max="100" value="0" class="slider" id="temperature">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="settings-block__field">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-4">
+                            Earthquake Alert Limit
+                        </div>
+                        <div class="col-1">
+                            <span class="bold">0.0°</span>
+                        </div>
+                        <div class="col-6 d-flex align-items-center">
+                            <input class="settings-block__slider" type="range" min="0" max="10" value="0" class="slider" id="earthquake">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="settings-block__field">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-4">
+                            Minimum Humidity Alert Limit
+                        </div>
+                        <div class="col-1">
+                            <span class="bold">0%</span>
+                        </div>
+                        <div class="col-6 d-flex align-items-center">
+                            <input class="settings-block__slider" type="range" min="0" max="30" value="0" class="slider" id="humidityMin">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="settings-block__field">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-4">
+                            Maximum Humidity Alert Limit
+                        </div>
+                        <div class="col-1">
+                            <span class="bold">0%</span>
+                        </div>
+                        <div class="col-6 d-flex align-items-center">
+                            <input class="settings-block__slider" type="range" min="31" max="100" value="0" class="slider" id="humidityMax">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="settings-block__field">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-4">
+                            Smoke Alert Limit
+                        </div>
+                        <div class="col-1">
+                            <span class="bold">OFF</span>
+                        </div>
+                        <div class="col-6 d-flex align-items-center">
+                            <input class="settings-block__slider" type="range" min="0" max="1" value="0" class="slider" id="smoke">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="settings-block__field">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-4">
+                            Flame Alert Limit
+                        </div>
+                        <div class="col-1">
+                            <span class="bold">OFF</span>
+                        </div>
+                        <div class="col-6 d-flex align-items-center">
+                            <input class="settings-block__slider" type="range" min="0" max="1" value="0" class="slider" id="flame">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="settings-block__field">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-4">
+                            Flammable Gas Alert Limit
+                        </div>
+                        <div class="col-1">
+                            <span class="bold">OFF</span>
+                        </div>
+                        <div class="col-6 d-flex align-items-center">
+                            <input class="settings-block__slider" type="range" min="0" max="1" value="0" class="slider" id="gas">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="settings-block__field">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-4">
+                            Temperature and Humidity Detection
+                        </div>
+                        <div class="col-1">
+                            <span class="bold">OFF</span>
+                        </div>
+                        <div class="col-6 d-flex align-items-center">
+                            <input class="settings-block__slider" type="range" min="0" max="1" value="0" class="slider" id="dht">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

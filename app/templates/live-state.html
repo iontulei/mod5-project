@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+{% block title %} {{ super() }} Live State {% endblock %}
+{% block css %} <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles/live-state.css')}}"/> {% endblock %}
+{% block javascript %}
+<script type="module" charset="utf-8" src="{{url_for('static', filename='javascript/live-state.js')}}"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
+{% endblock %}
+{% block content %}
+
+<main>
+    <div class="container">
+        <div class="live-states">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-12 d-flex justify-content-center">
+                    <div class="my-box">
+                        {% if theme == '2' -%}
+                            <img class="my-box__image" src="{{url_for('static', filename='images/temperature-b.svg')}}" alt="Temperature">
+                        {% elif theme == '3' -%}
+                            <img class="my-box__image" src="{{url_for('static', filename='images/temperature-y.svg')}}" alt="Temperature">
+                        {% else -%}
+                            <img class="my-box__image" src="{{url_for('static', filename='images/temperature.svg')}}" alt="Temperature">
+                        {% endif %}
+                        <span class="my-box__title">Temperature</span>
+                        <p class="my-box__text" id="temperature">?</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-12 d-flex justify-content-center">
+                    <div class="my-box">
+                        {% if theme == '2' -%}
+                            <img class="my-box__image" src="{{url_for('static', filename='images/earthquake-b.svg')}}" alt="Earthquake">
+                        {% elif theme == '3' -%}
+                            <img class="my-box__image" src="{{url_for('static', filename='images/earthquake-y.svg')}}" alt="Earthquake">
+                        {% else -%}
+                            <img class="my-box__image" src="{{url_for('static', filename='images/earthquake.svg')}}" alt="Earthquake">
+                        {% endif %}                        <span class="my-box__title">Earthquake</span>
+                        <p class="my-box__text" id="earthquake">?</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-12 d-flex justify-content-center">
+                    <div class="my-box">
+                        {% if theme == '2' -%}
+                            <img class="my-box__image" src="{{url_for('static', filename='images/smoke-b.svg')}}" alt="Smoke">
+                        {% elif theme == '3' -%}
+                            <img class="my-box__image" src="{{url_for('static', filename='images/smoke-y.svg')}}" alt="Smoke">
+                        {% else -%}
+                            <img class="my-box__image" src="{{url_for('static', filename='images/smoke.svg')}}" alt="Smoke">
+                        {% endif %}                            <span class="my-box__title">Smoke</span>
+                        <p class="my-box__text" id="smoke">?</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-12 d-flex justify-content-center">
+                    <div class="my-box">
+                        {% if theme == '2' -%}
+                            <img class="my-box__image" src="{{url_for('static', filename='images/humidity-b.svg')}}" alt="Humidity">
+                        {% elif theme == '3' -%}
+                            <img class="my-box__image" src="{{url_for('static', filename='images/humidity-y.svg')}}" alt="Humidity">
+                        {% else -%}
+                            <img class="my-box__image" src="{{url_for('static', filename='images/humidity.svg')}}" alt="Humidity">
+                        {% endif %}                          <span class="my-box__title">Humidity</span>
+                        <p class="my-box__text" id="humidity">?</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-12 d-flex justify-content-center">
+                    <div class="my-box">
+                        {% if theme == '2' -%}
+                            <img class="my-box__image" src="{{url_for('static', filename='images/fire-b.svg')}}" alt="Flame">
+                        {% elif theme == '3' -%}
+                            <img class="my-box__image" src="{{url_for('static', filename='images/fire-y.svg')}}" alt="Flame">
+                        {% else -%}
+                            <img class="my-box__image" src="{{url_for('static', filename='images/fire.svg')}}" alt="Flame">
+                        {% endif %}                        <span class="my-box__title">Flame</span>
+                        <p class="my-box__text" id="flame">?</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-12 d-flex justify-content-center">
+                    <div class="my-box">
+                        {% if theme == '2' -%}
+                            <img class="my-box__image" src="{{url_for('static', filename='images/gas-b.svg')}}" alt="Gas">
+                        {% elif theme == '3' -%}
+                            <img class="my-box__image" src="{{url_for('static', filename='images/gas-y.svg')}}" alt="Gas">
+                        {% else -%}
+                            <img class="my-box__image" src="{{url_for('static', filename='images/gas.svg')}}" alt="Gas">
+                        {% endif %}                          <span class="my-box__title">Flammable Gas</span>
+                        <p class="my-box__text" id="gas">?</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-12 d-flex justify-content-center">
+                    <div class="my-box">
+                        {% if theme == '2' -%}
+                            <img class="my-box__image" src="{{url_for('static', filename='images/clock-b.svg')}}" alt="Time">
+                        {% elif theme == '3' -%}
+                            <img class="my-box__image" src="{{url_for('static', filename='images/clock-y.svg')}}" alt="Time">
+                        {% else -%}
+                            <img class="my-box__image" src="{{url_for('static', filename='images/clock.svg')}}" alt="Time">
+                        {% endif %}                        <span class="my-box__title">Current time </span>
+                        <p class="my-box__text" id="time">?</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-12 d-flex justify-content-center">
+                    <div class="my-box">
+                        {% if theme == '2' -%}
+                            <img class="my-box__image" src="{{url_for('static', filename='images/phone-b.svg')}}" alt="112">
+                        {% elif theme == '3' -%}
+                            <img class="my-box__image" src="{{url_for('static', filename='images/phone-y.svg')}}" alt="112">
+                        {% else -%}
+                            <img class="my-box__image" src="{{url_for('static', filename='images/phone.svg')}}" alt="112">
+                        {% endif %}                        <span class="my-box__title">In case of emergency</span>
+                        <p class="my-box__text emergency-number">Call 112</p1>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-12 d-flex justify-content-center">
+                    <div class="my-box">
+                        {% if theme == '2' -%}
+                            <img class="my-box__image" src="{{url_for('static', filename='images/calendar-b.svg')}}" alt="Date">
+                        {% elif theme == '3' -%}
+                            <img class="my-box__image" src="{{url_for('static', filename='images/calendar-y.svg')}}" alt="Date">
+                        {% else -%}
+                            <img class="my-box__image" src="{{url_for('static', filename='images/calendar.svg')}}" alt="Date">
+                        {% endif %}                        <span class="my-box__title">Date</span>
+                        <p class="my-box__text" id="date">?</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

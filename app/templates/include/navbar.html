@@ -1,0 +1,24 @@
+<nav class="navbar">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-sm-6 d-flex align-items-center justify-content-between">
+                <span class="logo">QUAKE</span>
+            </div>
+            <div class="col-lg-4 col-sm-6 d-flex align-items-center justify-content-between">
+                <div class="container">
+                    <div class="row">
+                        <div class="col navbar__linkbox">
+                            <a class="navbar__links" href="{{ url_for('livestate') }}">Live State</a>
+                        </div>
+                        <div class="col navbar__linkbox">
+                            <a class="navbar__links" href="{{ url_for('history') }}">History</a>
+                        </div>
+                        <div class="col navbar__linkbox">
+                            <a class="navbar__links" href="{{ url_for('settings') }}">Settings</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>

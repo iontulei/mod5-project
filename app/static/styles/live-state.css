@@ -1,0 +1,45 @@
+@import "general.css";
+
+body {
+    overflow: hidden;
+}
+
+.live-states {
+    margin-top: 100px;
+}
+
+.my-box {
+    border-radius: 20px;
+    padding: 5px 15px;
+    margin-top: 30px;
+    text-align: center;
+
+    height: 125px;
+    width: 250px;
+
+    .my-box__image {
+        height: 30px;
+        margin-top: 25px; 
+        width: 100%;
+    }
+
+    .my-box__title {
+        font-family: Montserrat, sans-serif;
+        font-size: 16px;
+        width: 100%;
+    }
+
+    .my-box__text {
+        font-family: Montserrat, sans-serif;
+        font-weight: 700;
+        font-size: 16px;
+        width: 100%;
+    }
+}
+
+
+.emergency-number {
+    font-size: 20px;
+    font-weight: bold;
+    color: red;
+}

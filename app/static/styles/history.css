@@ -1,0 +1,55 @@
+@import "general.css";
+
+.history-analytics, .history-parameter {
+    font-family: Montserrat, sans-serif;
+    border-radius: 20px;
+    padding: 15px 50px;
+}
+
+.history-parameter {
+    margin: 50px 0 20px 0;
+    cursor: pointer;
+
+    .history-parameter__title {
+        font-weight: 700;
+        font-size: 40px;
+    }
+}
+
+.history-analytics {
+    padding-right: 150px;
+
+    .history-analytics__event {
+        margin: 15px 0;
+    }
+
+    .history-analytics__time {
+        font-size: 28px;
+    }
+
+    .history-analytics__stat {
+        font-size: 24px;
+    }
+}
+
+.history-analytics_graph {
+    padding: 0 !important;
+    height: 550px;
+}
+
+.ct-chart {
+    width: 90%;
+    height: 90%;
+}
+
+.small {
+    color: #0C9600;
+}
+
+.moderate {
+    color: #744C09;
+}
+
+.great {
+    color: #860000;
+}

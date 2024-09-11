@@ -1,0 +1,144 @@
+@import "general.css";
+
+
+.settings-block {
+    background-color: #fff;
+    font-family: Montserrat, sans-serif;
+    border-radius: 20px;
+    padding: 15px 0;
+    margin: 20px 0;
+    border: 2px solid #000;
+
+
+    .settings-block__title {
+        font-size: 16px;
+        font-weight: 700;
+        margin: 0 20px 10px 20px;
+    }
+
+    .settings-block__separator {
+        border: 0.5px solid #000;
+    }
+
+    .settings-block__field {
+        margin-top: 15px;
+    }
+
+    .settings-block__input {
+        font-size: 12px;
+        outline: none;
+        border: 1px solid #000;
+        border-radius: 25px;
+        padding: 3px 10px;
+        width: 100%;
+    }
+
+    .settings-block__button {
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        padding: 0 10px;
+        border-bottom: 1px solid #0b0055;
+        cursor: pointer;
+    }
+
+    .settings-block__button_active {
+        color: #0C9600
+    }
+
+    .settings-block__button:hover {
+        color:rgb(88, 1, 1);
+    }
+
+    .settings-block__radio {
+        display: none;
+    }
+
+    .settings-block__label {
+        cursor: pointer;
+        font-weight: 700;
+        border-bottom: 3px solid #fff;
+    }
+
+    .settings-block__radio:checked + .settings-block__label {
+        border-bottom: 3px solid #000;
+    }
+
+    .settings-block__slider {
+        width: 100%;
+        -webkit-appearance: none;
+        appearance: none;
+        background: #000;
+        height: 3px;
+        outline: none;
+        border-inline: 5px solid red;
+        cursor: pointer;
+    }
+    .settings-block__slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        height: 17px;
+        width: 17px;
+        border-radius: 50%;
+        background: #000;
+    }
+}
+
+ /* Modal styles */
+ .email-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    
+    .email-modal__content {
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        width: 300px;
+        margin: 100px auto;
+        padding: 20px;
+        position: relative;
+    }
+
+    .email-modal__close {
+        position: absolute;
+        top: 5px;
+        right: 10px;
+        font-size: 20px;
+        cursor: pointer;
+    }
+}
+
+.colors {
+    text-transform: uppercase;
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-text-stroke: 0.5px #000;
+    font-weight: 700;
+}
+
+.blue-dark {
+    color: #001453;
+}
+
+.white {
+    color: #fff;
+}
+
+.grey {
+    color: #DDE6ED;
+}
+
+.blue-light {
+    color: #27374D;
+}
+
+.yellow-dark {
+    color: #F1C376;
+}
+
+.green {
+    color: #606C5D;
+}

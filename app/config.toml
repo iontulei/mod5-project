@@ -1,0 +1,15 @@
+enable_dht = true
+enable_accel = true
+enable_flame = true
+enable_mq2 = true
+enable_mq9 = true
+enable_buzzer = false
+enable_led = false
+mq_max = 500
+sharp_movement_threshold = 15000
+discord_webhook = "https://discord.com/api/webhooks/1171770979022807140/P2_cIjQ2UJ0l98Jiobv6r3ssf99rLpleuzfO8OMQWHNAtLC3XHBB9uFbz3woMvvqplEp"
+color_format = "3"
+notification = "on"
+humidity_min = 15
+humidity_max = 99
+temperature_max = 50

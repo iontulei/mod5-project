@@ -1,0 +1,109 @@
+@import "./bootstrap/bootstrap-reboot.min.css";
+@import "./bootstrap/bootstrap-grid.min.css";
+
+@import "../fonts/fonts.css";
+
+html {
+    scroll-behavior: smooth;
+}
+
+.theme-1-1 {
+    background-color: #001453;
+}
+
+.theme-1-1-color {
+    color: #001453 !important;
+}
+
+.theme-1-2 {
+    background-color: #FFF;
+}
+
+.theme-1-2-color {
+    color: #000 !important;
+}
+
+.theme-2-1 {
+    background-color: #DDE6ED;
+}
+
+.theme-2-1-color {
+    color: #DDE6ED !important;
+}
+
+.theme-2-2 {
+    background-color: #27374D;
+}
+
+.theme-3-1 {
+    background-color: #FFF4F4;
+}
+
+.theme-3-1-color {
+    color: #FFF4F4 !important;
+}
+
+.theme-3-2 {
+    background-color: #606C5D;
+}
+
+.theme-3-3 {
+    background-color: #F1C376;
+}
+
+.theme-3-3-color {
+    color: #F1C376;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.none {
+    display: none !important;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: gives a subtle shadow for depth */
+    position: relative;  /* Added to position nav-links */
+
+    .navbar__links{
+        text-decoration: none;
+    }
+
+    .navbar__linkbox {
+        border-bottom: 3px solid rgba(255, 255, 255, 0);
+        padding: 20px 0;
+        text-align: center;
+        transition: all ease-in-out 0.5s;
+    }
+
+    .navbar__linkbox:hover {
+        border-bottom: 3px solid rgb(89, 255, 0);
+    }
+    
+    .navbar__linkbox_active {
+        border-bottom: 3px solid red;
+    }
+}
+
+.navbar .logo {
+    font-size: 24px;
+    font-weight: bold;
+    font-family: Dancing Script, cursive, Arial;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+*::-webkit-scrollbar {
+    display: none;
+}
+  
+/* Hide scrollbar for IE, Edge and Firefox */
+* {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+  
