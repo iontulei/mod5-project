@@ -51,5 +51,3 @@ This project would not have been possible without the contributions of my teamma
 - [Michalis Flevaris]()
 
 ![image](./preview/buttons-2.png)
-
-![image](./preview/graphs.png)
