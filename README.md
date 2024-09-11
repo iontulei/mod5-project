@@ -28,6 +28,8 @@ The "Quake" project is designed to offer a robust solution for:
 3. Change the current directory to where the startup file is located via `cd app`.
 4. Run the flask server via `python app.py`.
 
+![image](./preview/buttons-2.png)
+
 ## System Limitations
 
 While "Quake" offers significant functionality, there are a few limitations to consider:
@@ -49,5 +51,3 @@ This project would not have been possible without the contributions of my teamma
 - [Alexandru Verhovetchi](https://github.com/Alex-Verh)
 - [Dimitris Kalopisis]()
 - [Michalis Flevaris]()
-
-![image](./preview/buttons-2.png)
